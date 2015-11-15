@@ -1,7 +1,7 @@
 import java.net.*;
 import java.io.*;
-public class MulticastSend {
-   public static void main( String [] args) {
+public class MulticastSend implements Runnable {
+   public void run() {
      try {
        MulticastSocket mSocket = new MulticastSocket( );
        InetAddress mAddr = InetAddress.getByName("224.0.0.1");

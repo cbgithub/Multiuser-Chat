@@ -5,7 +5,7 @@
  import java.awt.event.*;
  import javax.swing.*;
  import javax.swing.UIManager.*;
- 
+
 public class GUI extends JFrame implements ActionListener{
 
     private JButton jButton1;
@@ -41,7 +41,7 @@ public class GUI extends JFrame implements ActionListener{
         } catch (Exception e) {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
-        
+
         jLabel1 = new JLabel();
         jTextField1 = new JTextField();
         jScrollPane1 = new JScrollPane();
@@ -62,7 +62,7 @@ public class GUI extends JFrame implements ActionListener{
         jLabel1.setText("Username:");
 
         jTextField1.setText("default_user");
-        
+
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -130,7 +130,7 @@ public class GUI extends JFrame implements ActionListener{
                         .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        
+
         layout.setVerticalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -168,19 +168,24 @@ public class GUI extends JFrame implements ActionListener{
         pack();
         setVisible(true);
     }
-    
+
     public void actionPerformed(ActionEvent event){
         if(event.getSource() == jToggleButton1){
             //Connect To Chatroom
             if(jToggleButton1.isSelected()){
-                //Connect
+                (new Thread(new MulticastJoin())).start();
+                (new Thread(new MulticastListener())).start();
             }
             else if(!jToggleButton1.isSelected()){
                 //Disconnect
             }
-        }    
+        }
         if(event.getSource() == jButton1){
-            //Send Message
+          if(jToggleButton1.isSelected()){
+            (new Thread(new MulticastSend())).start();
+            (new Thread(new MulticastListener())).start();
+          }
+          else{}
         }
         if(event.getSource() == jButton2){
             //Leave Chat
@@ -191,7 +196,7 @@ public class GUI extends JFrame implements ActionListener{
             System.exit(0);
         }
     }
-    
+
     public static void main(String[] args){
         GUI gui = new GUI();
     }

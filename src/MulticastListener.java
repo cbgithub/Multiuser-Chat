@@ -1,7 +1,7 @@
 import java.net.*;
 import java.io.*;
-public class MulticastListener {
-  public static void main( String [] args) {
+public class MulticastListener implements Runnable {
+  public void run() {
     InetAddress mAddr=null;
     MulticastSocket mSocket=null;
     final int PORT_NUM=4001;
