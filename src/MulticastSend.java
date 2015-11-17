@@ -1,6 +1,19 @@
 import java.net.*;
 import java.io.*;
 public class MulticastSend implements Runnable {
+   private MulticastSocket socket;
+   private InetAddress mAddr;
+   
+   public MulticastSend(String mAddr){
+       try{
+        this.mAddr = InetAddress.getByName(mAddr);
+        socket = new MulticastSocket( );
+       }
+       catch (Exception e){
+         System.out.println(e);
+       }
+   }
+   
    public void run() {
      try {
        MulticastSocket mSocket = new MulticastSocket( );

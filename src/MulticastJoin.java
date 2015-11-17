@@ -1,6 +1,19 @@
 import java.net.*;
 import java.io.*;
 public class MulticastJoin implements Runnable {
+  private MulticastSocket socket;
+  private InetAddress mAddr;
+  
+  public MulticastJoin(int port,
+                       String mAddr){
+    try{
+      socket = new MulticastSocket(port);
+      this.mAddr = InetAddress.getByName(mAddr);
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
+  }
   public void run() {
     try {
       MulticastSocket mSocket = new MulticastSocket(4001);

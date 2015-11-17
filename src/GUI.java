@@ -8,20 +8,20 @@
 
 public class GUI extends JFrame implements ActionListener{
 
-    private JButton jButton1;
-    private JButton jButton2;
-    private JButton jButton3;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
-    private JLabel jLabel4;
-    private JScrollPane jScrollPane1;
-    private JTextArea jTextArea1;
-    private JTextField jTextField1;
-    private JTextField jTextField2;
-    private JTextField jTextField3;
-    private JTextField jTextField4;
-    private JToggleButton jToggleButton1;
+    private JButton sendButton;
+    private JButton leaveButton;
+    private JButton exitButton;
+    private JLabel usernameLabel;
+    private JLabel chatMsgLabel;
+    private JLabel chatIPLabel;
+    private JLabel portLabel;
+    private JScrollPane chatroomScrollPane;
+    private JTextArea chatroomArea;
+    private JTextField usernameField;
+    private JTextField chatMsgField;
+    private JTextField chatIPField;
+    private JTextField portField;
+    private JToggleButton joinButton;
 
     /**
      * Creates new form GUI
@@ -42,53 +42,53 @@ public class GUI extends JFrame implements ActionListener{
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
 
-        jLabel1 = new JLabel();
-        jTextField1 = new JTextField();
-        jScrollPane1 = new JScrollPane();
-        jTextArea1 = new JTextArea();
-        jLabel2 = new JLabel();
-        jTextField2 = new JTextField();
-        jLabel3 = new JLabel();
-        jTextField3 = new JTextField();
-        jLabel4 = new JLabel();
-        jTextField4 = new JTextField();
-        jToggleButton1 = new JToggleButton();
-        jButton1 = new JButton();
-        jButton2 = new JButton();
-        jButton3 = new JButton();
+        usernameLabel = new JLabel();
+        usernameField = new JTextField();
+        chatroomScrollPane = new JScrollPane();
+        chatroomArea = new JTextArea();
+        chatMsgLabel = new JLabel();
+        chatMsgField = new JTextField();
+        chatIPLabel = new JLabel();
+        chatIPField = new JTextField();
+        portLabel = new JLabel();
+        portField = new JTextField();
+        joinButton = new JToggleButton();
+        sendButton = new JButton();
+        leaveButton = new JButton();
+        exitButton = new JButton();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Username:");
+        usernameLabel.setText("Username:");
 
-        jTextField1.setText("default_user");
+        usernameField.setText("default_user");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        chatroomArea.setEditable(false);
+        chatroomArea.setColumns(20);
+        chatroomArea.setRows(5);
+        chatroomScrollPane.setViewportView(chatroomArea);
 
-        jLabel2.setText("Chat Message:");
+        chatMsgLabel.setText("Chat Message:");
 
-        jLabel3.setText("Chat Group IP");
+        chatIPLabel.setText("Chat Group IP");
 
-        jTextField3.setText("127.0.0.1");
+        chatIPField.setText("127.0.0.1");
 
-        jLabel4.setText("Port");
+        portLabel.setText("Port");
 
-        jTextField4.setText("2015");
+        portField.setText("2015");
 
-        jToggleButton1.setText("JOIN CHAT");
-        jToggleButton1.addActionListener(this);
+        joinButton.setText("JOIN CHAT");
+        joinButton.addActionListener(this);
 
-        jButton1.setText("SEND MESSAGE");
-        jButton1.addActionListener(this);
+        sendButton.setText("SEND MESSAGE");
+        sendButton.addActionListener(this);
 
-        jButton2.setText("LEAVE CHAT");
-        jButton2.addActionListener(this);
+        leaveButton.setText("LEAVE CHAT");
+        leaveButton.addActionListener(this);
 
-        jButton3.setText("EXIT");
-        jButton3.addActionListener(this);
+        exitButton.setText("EXIT");
+        exitButton.addActionListener(this);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,34 +99,34 @@ public class GUI extends JFrame implements ActionListener{
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
+                        .addComponent(usernameLabel)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1)
+                        .addComponent(usernameField, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chatroomScrollPane)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(chatMsgLabel)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(chatMsgField, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField3, GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(chatIPField, GroupLayout.Alignment.LEADING)
+                                    .addComponent(chatIPLabel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField4, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(portField, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                                    .addComponent(portLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton2)
+                                        .addComponent(leaveButton)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(exitButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jToggleButton1, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(joinButton, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton1)))))
+                                        .addComponent(sendButton)))))
                         .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -136,33 +136,33 @@ public class GUI extends JFrame implements ActionListener{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jLabel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(usernameField)
+                    .addComponent(usernameLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(3, 3, 3)
-                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+                .addComponent(chatroomScrollPane, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chatMsgLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chatMsgField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(chatIPLabel)
+                            .addComponent(portLabel))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(chatIPField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(portField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jToggleButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(joinButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sendButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))))
+                            .addComponent(leaveButton)
+                            .addComponent(exitButton))))
                 .addGap(17, 17, 17))
         );
         pack();
@@ -170,28 +170,28 @@ public class GUI extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent event){
-        if(event.getSource() == jToggleButton1){
+        if(event.getSource() == joinButton){
             //Connect To Chatroom
-            if(jToggleButton1.isSelected()){
+            if(joinButton.isSelected()){
                 (new Thread(new MulticastJoin())).start();
                 (new Thread(new MulticastListener())).start();
             }
-            else if(!jToggleButton1.isSelected()){
+            else if(!joinButton.isSelected()){
                 //Disconnect
             }
         }
-        if(event.getSource() == jButton1){
-          if(jToggleButton1.isSelected()){
+        if(event.getSource() == sendButton){
+          if(joinButton.isSelected()){
             (new Thread(new MulticastSend())).start();
             (new Thread(new MulticastListener())).start();
           }
           else{}
         }
-        if(event.getSource() == jButton2){
+        if(event.getSource() == leaveButton){
             //Leave Chat
-            jToggleButton1.setSelected(false);
+            joinButton.setSelected(false);
         }
-        if(event.getSource() == jButton3){
+        if(event.getSource() == exitButton){
             //Exit Program
             System.exit(0);
         }

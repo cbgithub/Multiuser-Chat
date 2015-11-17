@@ -1,6 +1,23 @@
 import java.net.*;
 import java.io.*;
 public class MulticastListener implements Runnable {
+  private InetAddress mAddr;
+  private MulticastSocket mSocket;
+  private String hostname;
+  
+  public MulticastListener(String mAddr,
+                           int port,
+                           String hostname){
+    try{
+        this.mAddr = InetAddress.getByName(mAddr);
+        mSocket = new MulticastSocket(port);
+        this.hostname = hostname;
+    }
+    catch (Exception e){
+        System.out.println(e);
+    }
+  }
+  
   public void run() {
     InetAddress mAddr=null;
     MulticastSocket mSocket=null;
