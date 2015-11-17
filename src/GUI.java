@@ -60,12 +60,7 @@ public class GUI extends JFrame implements ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         usernameLabel.setText("Username:");
-
-<<<<<<< HEAD
-        jTextField1.setText(" ");
-=======
-        usernameField.setText("default_user");
->>>>>>> d119d87c528ed792573a4d044390d24e725d84b7
+        usernameField.setText(" ");
 
         chatroomArea.setEditable(false);
         chatroomArea.setColumns(20);
@@ -175,33 +170,20 @@ public class GUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent event){
         if(event.getSource() == joinButton){
-            //Connect To Chatroom
-<<<<<<< HEAD
-            if(jToggleButton1.isSelected()){
-                (new Thread(new MulticastJoin())).start();
-                (new Thread(new MulticastListener(jTextArea1))).start();
-=======
             if(joinButton.isSelected()){
                 (new Thread(new MulticastJoin(Integer.valueOf(portField.getText()), chatIPField.getText()))).start();
-                (new Thread(new MulticastListener(Integer.valueOf(portField.getText()), chatIPField.getText(), usernameField.getText()))).start();
->>>>>>> d119d87c528ed792573a4d044390d24e725d84b7
+                (new Thread(new MulticastListener(Integer.valueOf(portField.getText()), chatIPField.getText(), chatroomArea))).start();
+
             }
             else if(!joinButton.isSelected()){
                 //Disconnect
             }
         }
-<<<<<<< HEAD
-        if(event.getSource() == jButton1){
-          if(jToggleButton1.isSelected()){
-            (new Thread(new MulticastSend(jTextField2.getText(),jTextField1.getText()))).start();
-            jTextField2.setText(" ");
-=======
         if(event.getSource() == sendButton){
           if(joinButton.isSelected()){
-            (new Thread(new MulticastSend(chatIPField.getText(), usernameField.getText()))).start();
-            (new Thread(new MulticastListener(Integer.valueOf(portField.getText()), chatIPField.getText(), usernameField.getText()))).start();
->>>>>>> d119d87c528ed792573a4d044390d24e725d84b7
-          }
+            (new Thread(new MulticastSend(chatIPField.getText(), Integer.valueOf(portField.getText()), usernameField.getText(), chatMsgField.getText()))).start();
+          	chatMsgField.setText(" ");
+          	}
           else{}
         }
         if(event.getSource() == leaveButton){

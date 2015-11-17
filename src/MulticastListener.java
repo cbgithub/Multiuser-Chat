@@ -6,48 +6,27 @@ import javax.swing.*;
 import javax.swing.UIManager.*;
 
 public class MulticastListener implements Runnable {
-<<<<<<< HEAD
-  JTextArea area = null;
-
-  public MulticastListener(JTextArea incoming){
-  	area = incoming;
-  }
-  
-  
-=======
+  private JTextArea area = null;
   private InetAddress mAddr;
   private MulticastSocket mSocket;
   private String username;
+  private int port;
   
-  public MulticastListener(int port,
-                           String mAddr,
-                           String username){
+  public MulticastListener(int port, String mAddr, JTextArea incoming){
     try{
         this.mAddr = InetAddress.getByName(mAddr);
+        this.port = port;
         mSocket = new MulticastSocket(port);
-        this.username = username;
+        area = incoming;
     }
     catch (Exception e){
         System.out.println(e);
     }
   }
->>>>>>> d119d87c528ed792573a4d044390d24e725d84b7
-  
   public void run() {
     try {
-<<<<<<< HEAD
-      mAddr = InetAddress.getByName("audionews.mcast.net");
-      mSocket = new MulticastSocket(PORT_NUM);
       String hostname = InetAddress.getLocalHost().getHostName();
-      
-      //mSocket.joinGroup(mAddr);
-      System.out.println("Listening from " + hostname + " at " +
-=======
-      byte [] buffer = new byte[8192];
-      mSocket.joinGroup(mAddr);
-      System.out.println("Listening from " + username + " at " +
->>>>>>> d119d87c528ed792573a4d044390d24e725d84b7
-      mAddr.getHostName());
+      System.out.println("Listening from " + hostname + " at " + mAddr.getHostName());
       while (true){
         byte [] buffer = new byte[8192];
         DatagramPacket dp = new DatagramPacket(buffer, buffer.length);
