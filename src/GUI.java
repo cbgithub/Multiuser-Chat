@@ -72,11 +72,11 @@ public class GUI extends JFrame implements ActionListener{
 
         chatIPLabel.setText("Chat Group IP");
 
-        chatIPField.setText("127.0.0.1");
+        chatIPField.setText("224.27.43.188");
 
         portLabel.setText("Port");
 
-        portField.setText("2015");
+        portField.setText("4001");
 
         joinButton.setText("JOIN CHAT");
         joinButton.addActionListener(this);
@@ -173,8 +173,8 @@ public class GUI extends JFrame implements ActionListener{
         if(event.getSource() == joinButton){
             //Connect To Chatroom
             if(joinButton.isSelected()){
-                (new Thread(new MulticastJoin())).start();
-                (new Thread(new MulticastListener())).start();
+                (new Thread(new MulticastJoin(Integer.valueOf(portField.getText()), chatIPField.getText()))).start();
+                (new Thread(new MulticastListener(Integer.valueOf(portField.getText()), chatIPField.getText(), usernameField.getText()))).start();
             }
             else if(!joinButton.isSelected()){
                 //Disconnect
@@ -182,8 +182,8 @@ public class GUI extends JFrame implements ActionListener{
         }
         if(event.getSource() == sendButton){
           if(joinButton.isSelected()){
-            (new Thread(new MulticastSend())).start();
-            (new Thread(new MulticastListener())).start();
+            (new Thread(new MulticastSend(chatIPField.getText(), usernameField.getText()))).start();
+            (new Thread(new MulticastListener(Integer.valueOf(portField.getText()), chatIPField.getText(), usernameField.getText()))).start();
           }
           else{}
         }

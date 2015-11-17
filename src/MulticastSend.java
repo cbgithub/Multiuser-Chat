@@ -3,11 +3,13 @@ import java.io.*;
 public class MulticastSend implements Runnable {
    private MulticastSocket socket;
    private InetAddress mAddr;
+   private String username;
    
-   public MulticastSend(String mAddr){
+   public MulticastSend(String mAddr, String username){
        try{
         this.mAddr = InetAddress.getByName(mAddr);
         socket = new MulticastSocket( );
+        this.username = username;
        }
        catch (Exception e){
          System.out.println(e);
@@ -16,13 +18,10 @@ public class MulticastSend implements Runnable {
    
    public void run() {
      try {
-       MulticastSocket mSocket = new MulticastSocket( );
-       InetAddress mAddr = InetAddress.getByName("224.0.0.1");
-       String hostname = InetAddress.getLocalHost().getHostName();
-       String sendString = "Hello from " + hostname;
+       String sendString = "Hello from " + username;
        byte [] buffer = sendString.getBytes();
        DatagramPacket dp = new DatagramPacket(buffer, buffer.length, mAddr, 4001);
-       mSocket.send(dp);
+       socket.send(dp);
      }
      catch (SocketException se) {
        System.out.println("Socket Exception : " + se);

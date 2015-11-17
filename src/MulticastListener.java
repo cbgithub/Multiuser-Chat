@@ -3,15 +3,15 @@ import java.io.*;
 public class MulticastListener implements Runnable {
   private InetAddress mAddr;
   private MulticastSocket mSocket;
-  private String hostname;
+  private String username;
   
-  public MulticastListener(String mAddr,
-                           int port,
-                           String hostname){
+  public MulticastListener(int port,
+                           String mAddr,
+                           String username){
     try{
         this.mAddr = InetAddress.getByName(mAddr);
         mSocket = new MulticastSocket(port);
-        this.hostname = hostname;
+        this.username = username;
     }
     catch (Exception e){
         System.out.println(e);
@@ -19,16 +19,10 @@ public class MulticastListener implements Runnable {
   }
   
   public void run() {
-    InetAddress mAddr=null;
-    MulticastSocket mSocket=null;
-    final int PORT_NUM=4001;
     try {
-      mAddr = InetAddress.getByName("audionews.mcast.net");
-      mSocket = new MulticastSocket(PORT_NUM);
-      String hostname = InetAddress.getLocalHost().getHostName();
       byte [] buffer = new byte[8192];
       mSocket.joinGroup(mAddr);
-      System.out.println("Listening from " + hostname + " at " +
+      System.out.println("Listening from " + username + " at " +
       mAddr.getHostName());
       while (true){
         DatagramPacket dp = new DatagramPacket(buffer, buffer.length);
