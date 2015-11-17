@@ -2,6 +2,7 @@
 import java.net.*;
 import java.io.*;
 public class MulticastSend implements Runnable {
+<<<<<<< HEAD
 	
 	
 	String message = "";
@@ -39,6 +40,31 @@ public class MulticastSend implements Runnable {
         PACKET= new DatagramPacket(buf, buf.length, address, portNum);
         mSocket.send(PACKET);
         */
+=======
+   private MulticastSocket socket;
+   private InetAddress mAddr;
+   private String username;
+   private String message;
+   
+   public MulticastSend(String mAddr, String username, String message){
+       try{
+        this.mAddr = InetAddress.getByName(mAddr);
+        socket = new MulticastSocket( );
+        this.username = username;
+        this.message = message;
+       }
+       catch (Exception e){
+         System.out.println(e);
+       }
+   }
+   
+   public void run() {
+     try {
+       message = username + ">>>" + message;
+       byte [] buffer = sendString.getBytes();
+       DatagramPacket dp = new DatagramPacket(buffer, buffer.length, mAddr, 4001);
+       socket.send(dp);
+>>>>>>> d119d87c528ed792573a4d044390d24e725d84b7
      }
      catch (SocketException se) {
        System.out.println("Socket Exception : " + se);
