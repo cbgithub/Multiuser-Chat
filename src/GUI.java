@@ -61,7 +61,7 @@ public class GUI extends JFrame implements ActionListener{
 
         jLabel1.setText("Username:");
 
-        jTextField1.setText("default_user");
+        jTextField1.setText(" ");
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -174,7 +174,7 @@ public class GUI extends JFrame implements ActionListener{
             //Connect To Chatroom
             if(jToggleButton1.isSelected()){
                 (new Thread(new MulticastJoin())).start();
-                (new Thread(new MulticastListener())).start();
+                (new Thread(new MulticastListener(jTextArea1))).start();
             }
             else if(!jToggleButton1.isSelected()){
                 //Disconnect
@@ -182,8 +182,8 @@ public class GUI extends JFrame implements ActionListener{
         }
         if(event.getSource() == jButton1){
           if(jToggleButton1.isSelected()){
-            (new Thread(new MulticastSend())).start();
-            (new Thread(new MulticastListener())).start();
+            (new Thread(new MulticastSend(jTextField2.getText(),jTextField1.getText()))).start();
+            jTextField2.setText(" ");
           }
           else{}
         }
