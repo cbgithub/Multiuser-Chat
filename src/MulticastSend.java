@@ -4,12 +4,14 @@ public class MulticastSend implements Runnable {
    private MulticastSocket socket;
    private InetAddress mAddr;
    private String username;
+   private String message;
    
-   public MulticastSend(String mAddr, String username){
+   public MulticastSend(String mAddr, String username, String message){
        try{
         this.mAddr = InetAddress.getByName(mAddr);
         socket = new MulticastSocket( );
         this.username = username;
+        this.message = message;
        }
        catch (Exception e){
          System.out.println(e);
@@ -18,7 +20,7 @@ public class MulticastSend implements Runnable {
    
    public void run() {
      try {
-       String sendString = "Hello from " + username;
+       message = username + ">>>" + message;
        byte [] buffer = sendString.getBytes();
        DatagramPacket dp = new DatagramPacket(buffer, buffer.length, mAddr, 4001);
        socket.send(dp);
