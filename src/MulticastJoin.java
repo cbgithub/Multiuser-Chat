@@ -11,7 +11,7 @@ public class MulticastJoin implements Runnable {
         DatagramPacket dp = new DatagramPacket(buffer, buffer.length);
         mSocket.receive(dp);
         String str = new String(dp.getData(), "8859_1");
-        System.out.println(str);
+        //System.out.println(str);
       }//end of while
     }//end of try
     catch (SocketException se){
