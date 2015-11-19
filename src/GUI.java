@@ -1,10 +1,16 @@
 /**
  * @author Jonathan Hosler
+ * @author Kurtis Graben
+ * @author Josh Hill
+ * @author Christopher Burdette
  */
+ 
  import java.awt.*;
  import java.awt.event.*;
  import javax.swing.*;
  import javax.swing.UIManager.*;
+ import java.net.*;
+ import java.io.*;
 
 public class GUI extends JFrame implements ActionListener{
 
@@ -22,10 +28,8 @@ public class GUI extends JFrame implements ActionListener{
     private JTextField chatIPField;
     private JTextField portField;
     private JToggleButton joinButton;
-
-    /**
-     * Creates new form GUI
-     */
+    private MulticastThread mThread;
+    
     public GUI() {
         initComponents();
     }
@@ -60,8 +64,7 @@ public class GUI extends JFrame implements ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         usernameLabel.setText("Username:");
-
-        usernameField.setText("default_user");
+        usernameField.setText(" ");
 
         chatroomArea.setEditable(false);
         chatroomArea.setColumns(20);
@@ -171,28 +174,25 @@ public class GUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent event){
         if(event.getSource() == joinButton){
-            //Connect To Chatroom
             if(joinButton.isSelected()){
-                (new Thread(new MulticastJoin(Integer.valueOf(portField.getText()), chatIPField.getText()))).start();
-                (new Thread(new MulticastListener(Integer.valueOf(portField.getText()), chatIPField.getText(), usernameField.getText()))).start();
-            }
-            else if(!joinButton.isSelected()){
-                //Disconnect
+                mThread = new MulticastThread(Integer.valueOf(portField.getText()), chatIPField.getText(), chatroomArea, true);
+                (new Thread(mThread)).start();
             }
         }
         if(event.getSource() == sendButton){
-          if(joinButton.isSelected()){
-            (new Thread(new MulticastSend(chatIPField.getText(), usernameField.getText()))).start();
-            (new Thread(new MulticastListener(Integer.valueOf(portField.getText()), chatIPField.getText(), usernameField.getText()))).start();
-          }
-          else{}
+            mThread.send(usernameField.getText(), chatMsgField.getText());
+          	chatMsgField.setText("");
+          	
         }
         if(event.getSource() == leaveButton){
-            //Leave Chat
-            joinButton.setSelected(false);
+            try{
+                joinButton.setSelected(false);
+                mThread.leave();
+                System.out.println("Disconnected from chat ");
+            }
+            catch(Exception e){}
         }
         if(event.getSource() == exitButton){
-            //Exit Program
             System.exit(0);
         }
     }
