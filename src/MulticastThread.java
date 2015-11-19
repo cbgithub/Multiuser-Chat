@@ -17,7 +17,6 @@ public class MulticastThread implements Runnable {
     private InetAddress mAddr;
     private MulticastSocket mSocket;
     private DatagramPacket dp;
-    private String username;
     private int port;
     private boolean active;
 

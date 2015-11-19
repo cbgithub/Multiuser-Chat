@@ -182,7 +182,6 @@ public class GUI extends JFrame implements ActionListener{
         if(event.getSource() == sendButton){
             mThread.send(usernameField.getText(), chatMsgField.getText());
           	chatMsgField.setText("");
-          	
         }
         if(event.getSource() == leaveButton){
             try{
