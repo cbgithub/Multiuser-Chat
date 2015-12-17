@@ -19,3 +19,6 @@ I assisted with writing the thread as well as connecting the buttons from the GU
 
 #Features#
 ![alt tag](https://cloud.githubusercontent.com/assets/8529024/11330866/302932f6-9178-11e5-8e98-919e4a91a2b2.png) 
+
+#Installation#
+This chat can simply be used by downloading the (<a href="https://github.com/cbgithub/Multiuser-Chat/blob/master/MultiCastDemo1.jar?raw=true">jar</a>) file.
