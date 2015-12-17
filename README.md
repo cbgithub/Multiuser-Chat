@@ -1,5 +1,6 @@
 #Multiuser Chat#
 This was a group project that was done in my CS 450(Networking) class. The instructions were to create a Multi-Chat room with a GUI that contains a JTextarea, JTextFields, JButtons and JLabels and a Thread that handles all the incoming messages using a multicastsocket and datagrampacket. This project was completely within two weeks.
+![alt tag](https://cloud.githubusercontent.com/assets/8529024/11330866/302932f6-9178-11e5-8e98-919e4a91a2b2.png) 
 
 #My Team
  <ul>
@@ -17,8 +18,12 @@ I assisted with writing the thread as well as connecting the buttons from the GU
 <li> JDK </li>
  </ul>
 
-#Features#
-![alt tag](https://cloud.githubusercontent.com/assets/8529024/11330866/302932f6-9178-11e5-8e98-919e4a91a2b2.png) 
+<h2>Features: </h2>
+  <ul>
+    <li><b>Join</b>
+    </li>
+  </ul>
+
 
 #Installation#
 This chat can simply be used by downloading the <a href="https://github.com/cbgithub/Multiuser-Chat/blob/master/MultiCastDemo1.jar?raw=true">jar</a> file.
