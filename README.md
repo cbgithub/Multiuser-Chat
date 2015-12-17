@@ -20,7 +20,13 @@ I assisted with writing the thread as well as connecting the buttons from the GU
 
 <h2>Features: </h2>
   <ul>
-    <li><b>Join</b>
+    <li><b>Join Chat</b>
+    </li>
+    <li><b>Leave Chat</b>
+    </li>
+     <li><b>Send Message</b>
+    </li>
+     <li><b>Exit</b>
     </li>
   </ul>
 
