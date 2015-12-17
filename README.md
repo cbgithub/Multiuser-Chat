@@ -18,7 +18,7 @@ I assisted with writing the thread as well as connecting the buttons from the GU
 <li> JDK </li>
  </ul>
 
-<h2>Features: </h2>
+#Features#
   <ul>
     <li><b>Join Chat</b>
     </li>
