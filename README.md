@@ -36,4 +36,4 @@ I assisted with writing the thread as well as connecting the buttons from the GU
 
 
 #Installation#
-This chat can simply be used by downloading the <a href="https://github.com/cbgithub/Multiuser-Chat/blob/master/MultiCastDemo1.jar?raw=true">jar</a> file.
+To test the chat application on only one computer download this <a href="https://github.com/cbgithub/Multiuser-Chat/blob/master/MultiCastDemo1.jar?raw=true">jar1</a> file and this <a href="https://github.com/cbgithub/Multiuser-Chat/blob/master/MultiCastDemo2.jar?raw=true">jar2</a> file. Then open both applications, type in the same multicast Ip address and press join. After that send as many messages as you want. To test the chat application on two different computers download only one jar file per computer, type in same multicast IP address, join and then send messages.
