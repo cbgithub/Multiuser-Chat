@@ -21,10 +21,7 @@ I assisted with writing the thread as well as connecting the buttons from the GU
 #Features#
   <ul>
     <li><b>Join Chat</b>
-      <li>
-         When running the GUI, the user can type in any multicast ip address and join the chat.
-      </li>
-      
+     When running the GUI, the user can type in any multicast ip address and join the chat.
     </li>
     <li><b>Leave Chat</b>
     </li>
