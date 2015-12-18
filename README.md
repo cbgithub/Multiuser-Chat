@@ -20,14 +20,17 @@ I assisted with writing the thread as well as connecting the buttons from the GU
 
 #Features#
   <ul>
-    <li><b>Join Chat</b>
-     When running the GUI, the user can type in any multicast ip address and join the chat.
+    <li><b>Join Chat - </b>
+     when running the GUI, the user can type in any multicast ip address and join the chat.
     </li>
-    <li><b>Leave Chat</b>
+    <li><b>Leave Chat - </b>
+     This allows the user to leave the chat room that he or she joined. 
     </li>
-     <li><b>Send Message</b>
+     <li><b>Send Message - </b>
+     This allows the user to send a message to everyone in the chat room.
     </li>
-     <li><b>Exit</b>
+     <li><b>Exit - </b>
+     This allows the user to exit the whole program.
     </li>
   </ul>
 
