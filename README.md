@@ -10,15 +10,15 @@ This was a group project that was done in my CS 450(Networking) class. The instr
     <li>joshua Hill (<a href="https://github.com/jhill5">jhill5</a>)</li>
   </ul>
 
-# My Role#
+# My Role
 I assisted with writing the thread as well as connecting the buttons from the GUI to the thread.
 
-# Tools#
+# Tools
 <ul>
 <li> JDK </li>
  </ul>
 
-# Features#
+# Features
   <ul>
     <li><b>Join Chat - </b>
      when running the GUI, the user can type in any multicast ip address and join the chat.
@@ -35,5 +35,5 @@ I assisted with writing the thread as well as connecting the buttons from the GU
   </ul>
 
 
-# Installation#
+# Installation
 To test the chat application on only one computer download this <a href="https://github.com/cbgithub/Multiuser-Chat/blob/master/MultiCastDemo1.jar?raw=true">jar1</a> file and this <a href="https://github.com/cbgithub/Multiuser-Chat/blob/master/MultiCastDemo2.jar?raw=true">jar2</a> file. Then open both applications, type in the same <a href= "http://www.iana.org/assignments/multicast-addresses/multicast-addresses.xhtml">multicast Ip address</a> and press join. After that send as many messages as you want. To test the chat application on two different computers download only one jar file per computer, type in same multicast Ip address, join and then send messages.
